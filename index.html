@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             height: 100vh;
@@ -21,7 +24,7 @@
 
         .container {
             background-color: rgb(0, 0, 0);
-            opacity: 0.6;
+            opacity: 0.7;
             margin: 2rem;
             padding: 2rem;
             border-radius: 20px;
@@ -29,13 +32,26 @@
 
         .input {
             width: 100%;
+            border-radius: 2rem;
+        }
+        i{
+            cursor: pointer;
+            margin: 0.3rem;
+        }
+        #hi{
+            display: flex;
+            align-items:center;
+            justify-content: space-evenly;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <input type="text" class="input">
+        <div id="hi">
+            <input type="text" class="input">
+            <i class="fa fa-magnifying-glass" id="search"></i>
+        </div>
         <h1 class="result">Weather in city</h1>
         <h2 class="temp">XX&deg;</h2>
         <p class="name">description</p>
@@ -50,7 +66,7 @@
         let cityname;
         let apikey = 'd1a7cbd8828e52c80f1021d29016c4d8';
         let url1 = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=d1a7cbd8828e52c80f1021d29016c4d8`
-
+        let search=document.getElementById('search')
 
         inp.addEventListener('keypress', (e) => {
             if (e.key == 'Enter') {
@@ -60,7 +76,13 @@
 
 
             }
+        })
 
+        search.addEventListener('click',() => {
+            console.log('hi')
+            cityname=inp.value;
+            fetchweath(cityname)
+            res.innerHTML=`weather in ${cityname}`;
         })
 
         const fetchweath = (cityname) => {
@@ -71,15 +93,6 @@
 
         const displaydom = (datum) => {
             console.log(datum);
-
-            // <div class="container">
-            //     <input type="text" class="input">
-            //     <h1 class="result">Weather in tokyo</h1>
-            //     <h2 class="temp">51&deg;</h2>
-            //     <p class="name">cloudy</p>
-            //     <p class="humidity">humidity 60%</p>
-            //     <p class="win-spd">wind speed 5km/hr</p>
-            // </div>
 
             let tempr = document.querySelector('.temp');
             const { temp } = datum.main;
