@@ -46,7 +46,7 @@
     </style>
 </head>
 
-<body>
+<body class='fullcontainer'>
     <div class="container">
         <div id="hi">
             <input type="text" class="input">
@@ -79,6 +79,7 @@
         })
 
         search.addEventListener('click',() => {
+            backimg();
             console.log('hi')
             cityname=inp.value;
             fetchweath(cityname)
@@ -110,6 +111,11 @@
             ws.innerHTML = `${speed} km/hr`
 
 
+        }
+        const backimg=()=>{
+            console.log('hi')
+            let body=document.queryselector('.fullcontainer')
+            body.style.backgroundImage:" url('https://source.unsplash.com/500x500/?landscape')";
         }
 
 
