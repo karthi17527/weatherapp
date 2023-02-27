@@ -46,7 +46,7 @@
     </style>
 </head>
 
-<body class='fullcontainer'>
+<body id='fullcontainer'>
     <div class="container">
         <div id="hi">
             <input type="text" class="input">
@@ -114,8 +114,7 @@
         }
         const backimg=()=>{
             console.log('hi')
-            let body=document.queryselector('.fullcontainer')
-            body.style.backgroundImage=" url(https://source.unsplash.com/500x500/?landscape)";
+            document.getElementById("fullcontainer").style.backgroundImage = "url(https://source.unsplash.com/500x500/?landscape)";
         }
 
 
