@@ -80,7 +80,6 @@
         })
 
         search.addEventListener('click',() => {
-            backimg();
             console.log('hi')
             cityname=inp.value;
             fetchweath(cityname)
@@ -88,6 +87,7 @@
         })
 
         const fetchweath = (cityname) => {
+                        backimg();
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=d1a7cbd8828e52c80f1021d29016c4d8`)
                 .then((response) => response.json())
                 .then((data) => displaydom(data))
