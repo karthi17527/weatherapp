@@ -11,6 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         #fullcontainer {
+            background-image: url('https://source.unsplash.com/500x500/?landscape');
             height: 100vh;
             width: 100%;
             background-repeat: no-repeat;
@@ -87,7 +88,6 @@
         })
 
         const fetchweath = (cityname) => {
-                        backimg();
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=d1a7cbd8828e52c80f1021d29016c4d8`)
                 .then((response) => response.json())
                 .then((data) => displaydom(data))
